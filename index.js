@@ -90,8 +90,8 @@ var finances = [
 var total = 0;
 var average = 0;
 //finances.length will give us The total number of months included in the dataset.
-var highest = 0;
-var lowest = 9999999999;
+var highest = -999999999999;
+var lowest = 999999999999;
 var highestMonth;
 var lowestMonth;
 //Loop for verifying all info in the array
@@ -110,23 +110,47 @@ for(var i =0; i < finances.length; i++){
         highestMonth = finances[i][0];
     }
 }
-// calculate the average of the **changes** in Profit/Losses over the entire period.
+// calculate the average of the Profit/Losses over the entire period.
 average = (total/finances.length);
 
 console.log("Financial Analysis" +
             "\n----------------------------" +
             "\nTotal Months: " + finances.length +
             "\nTotal: " + total +
-            "\nAverage Change: " + average.toFixed(2) + //Using toFixed(2) to show only 2 number after decimal
-            "\nGreatest Increase in Profits: " + highestMonth + " ($" + highest + ")" +
-            "\nGreatest Decrease in Profits: " + lowestMonth + " ($" + lowest + ")"
+            "\nAverage: " + average.toFixed(2) + //Using toFixed(2) to show only 2 number after decimal
+            "\nMonth with the Greatest Profits: " + highestMonth + " ($" + highest + ")" +
+            "\nMonth with the Greatest Losses: " + lowestMonth + " ($" + lowest + ")"
 );
 
+//reset var
+lowest = 999999999999;
+highest = -999999999999;
+total = 0;
+var profitLossesDifference = 0;
+//Loop for verifying all info in the array
+for(var i =1; i < finances.length; i++){
+    
+    //calculate the difference of profit/losses between actual month and past month    
+    var profitLossesDifference = (finances[i][1] - finances[i-1][1]);
+    
+    //sum The net total amount of change Profit/Losses month-to-month over the entire period.
+    total += profitLossesDifference;
+     
+    if(lowest > profitLossesDifference){
+        lowest = profitLossesDifference;
+        lowestMonth = (finances[i-1][0] + " to " + finances[i][0]);
+    }
 
-// // You will need to track what the total change in profits are from month to month and then find the average.
-// calculate the changes from month to month (for loop taking the actual index minus the next index)
-// // (`Total/Number of months`)
+    if (highest < profitLossesDifference) {
+        highest = profitLossesDifference;        
+        highestMonth = (finances[i-1][0] + " to " + finances[i][0]);
+    }
+}
+// calculate the average change in frofit/losses since first month (-1 month because were calculating the difference between the month's)
+average = (total/(finances.length -1));
 
-// // The greatest increase in profits (date and amount) over the entire period.
-// get the bigger and the lowest
-// The greatest decrease in losses (date and amount) over the entire period.
+console.log("----------------------------" +
+            "\nAverage Change in Profit/Losses from one month to another: " + average.toFixed(2) + //Using toFixed(2) to show only 2 number after decimal
+            "\nGreatest Increase in Profits from one month to another: " + highestMonth + " ($" + highest + ")" +
+            "\nGreatest Decrease in Profits from one month to another: " + lowestMonth + " ($" + lowest + ")"
+);
