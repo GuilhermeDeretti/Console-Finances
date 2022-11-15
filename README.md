@@ -2,9 +2,10 @@
 
 ## Description
 
+In this project we created a Financial analysis tool using javascript basic knownlege. 
+Provided a financial dataset we process and calculate the profit and losses to generate a log with important information for the company.
 
-
-**Note:** 
+**Note:** This project gave us opportunity to test our javascript skills and grow it, also with reasearch learning about a VScode built in debugging tool for javascript which help us check the results step by step in real time. 
 
 ## instalation
 
@@ -12,16 +13,16 @@ N/A
 
 ## Usage
 
-* In the top of the website you'll find links to the sections, when clicked it will scrolls to the corresponding section.
+* For the purpose of testing/using this website you must use google chrome web browser and follow the steps bellow.
 
-* This website is responsive and you can test by opening it in your computer, mobile phone or tablet and you will see that it's responsive to your screen size.
-![Mobile Version](./assets/images/first-step.png)
+* Open the Console-finances web app, and right click in the center of the screen, a list of options will appear, choose inspect, image follows.
+![First Step](./assets/images/first-step.png)
 
-* This website
-![Mobile Version](./assets/images/second-step.png)
+* change to the "console" tab, image follows.
+![Second Step](./assets/images/second-step.png)
 
-* This website 
-![Mobile Version](./assets/images/third-step.png)
+* Now you have access to the Finances as the example in the following image.
+![Third Step](./assets/images/third-step.png)
 
 ## Credits
 
@@ -33,4 +34,4 @@ Available under the MIT license. See the LICENSE file for more info.
 
 ## Test
 
-[Deployed application](https://guilhermederetti.github.io/Bootstrap-Portfolio/)
+[Deployed application](https://guilhermederetti.github.io/Console-Finances/)
